@@ -1,29 +1,42 @@
-call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'dense-analysis/ale'
-Plug 'preservim/nerdtree'
-call plug#end()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-autocmd vimenter * ++nested colorscheme gruvbox
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+Plugin 'rust-lang/rust.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'fcpg/vim-farout'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+syntax enable
+filetype plugin indent on
 
 set number
-set autoindent
-set smartindent
-set cursorline
-set nowrap
-set incsearch
-set ignorecase
-set smartcase
-set showmode
-set showmatch
-set hlsearch
-
-" Enable auto completion menu after pressing TAB.
+set relativenumber
+colorscheme farout
 set wildmenu
-
-" Make wildmenu behave like similar to Bash completion.
-set wildmode=list:longest
-
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with these extensions.
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
